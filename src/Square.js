@@ -17,7 +17,7 @@ const Square = ({ squareId }) => {
 
   const otherPlayer = playerTurn === "X" ? "O" : "X";
 
-  const checkWinOrTie = (player, newPlayerMoves) => {
+  const checkWin = (player, newPlayerMoves) => {
     for (let i = 0; i < winPatterns.length; i++) {
       // If every element of the winPatterns[i] subarray are present for a player, they win.
       if (
@@ -51,7 +51,7 @@ const Square = ({ squareId }) => {
     // Check if the current player is a winner or there is a tie (need at least 3 moves to win).
     let winOrTie = false;
     if (playerMoves[playerTurn].length >= 3) {
-      winOrTie = checkWinOrTie(playerTurn, newPlayerMoves);
+      winOrTie = checkWin(playerTurn, newPlayerMoves);
     }
     if (!winOrTie) {
       if (playerMoves["X"].length + playerMoves["O"].length === 9) {
