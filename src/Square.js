@@ -64,19 +64,11 @@ const Square = ({ squareId }) => {
     }
   };
 
-  // const crossOrNought = playerMoves['X'].includes(squareId) ? <Cross /> :
-  // (playerMoves['O'].includes(squareId) && <Nought />);
-
-  let squareValue = "X";
-  let crossOrNought = "";
-  if (playerMoves["X"].includes(squareId)) {
-    squareValue = "X";
-    crossOrNought = <Cross />;
-  }
-  if (playerMoves["O"].includes(squareId)) {
-    squareValue = "O";
-    crossOrNought = <Nought />;
-  }
+  const crossOrNought = playerMoves["X"].includes(squareId) ? (
+    <Cross />
+  ) : (
+    playerMoves["O"].includes(squareId) && <Nought />
+  );
 
   let disabled = "";
   if (squaresClicked.includes(squareId)) {
@@ -84,12 +76,7 @@ const Square = ({ squareId }) => {
   }
 
   return (
-    <button
-      className="square"
-      value={squareValue}
-      onClick={addMove}
-      disabled={disabled}
-    >
+    <button className="square" onClick={addMove} disabled={disabled}>
       {crossOrNought}
     </button>
   );
