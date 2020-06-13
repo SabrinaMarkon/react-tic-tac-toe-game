@@ -28,7 +28,6 @@ const Square = ({ squareId }) => {
         setStatus(`Winner: ${player}`);
         // Disable all squares since game is over.
         setSquaresClicked([1, 2, 3, 4, 5, 6, 7, 8, 9]);
-        console.log("HAI! " + winPatterns[i] + " THAR! ");
         return true;
       }
     }
@@ -55,7 +54,6 @@ const Square = ({ squareId }) => {
       winOrTie = checkWinOrTie(playerTurn, newPlayerMoves);
     }
     if (!winOrTie) {
-      console.log(playerMoves["X"].length + playerMoves["O"].length);
       if (playerMoves["X"].length + playerMoves["O"].length === 9) {
         setStatus("Tie");
         setSquaresClicked([1, 2, 3, 4, 5, 6, 7, 8, 9]);
